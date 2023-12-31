@@ -304,11 +304,11 @@ bindsym $mod+Shift+p exec ~/.config/i3/scripts/power-profiles
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1:"
 set $ws2 "2:"
-set $ws3 "3:C"
+set $ws3 "3:"
 set $ws4 "4:"
-set $ws5 "5:A"
-set $ws6 "6:"
-set $ws7 "7:"
+set $ws5 "5:"
+set $ws6 "6:"
+set $ws7 "7:"
 set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
@@ -328,12 +328,12 @@ assign [class="(?i)firefox"] $ws2
 assign [class="Code"] $ws3
 assign [class="Thunar"] $ws4
 assign [class="evince"] $ws5
+assign [class="obsidian"] $ws5
+assign [class="shotwell"] $ws6
 assign [class="vlc"] $ws7
-assign [class="parole"] $ws8
-assign [class="shotwell"] $ws9
+assign [class="parole"] $ws7
 # assign [class="Viber"] $ws6
 # assign [class="instagram-nativefier"] $ws6
-assign [class="obsidian"] $ws7
 # assign [class="thunderbird"] $ws4
 # assign [class="TelegramDesktop"] $ws6
 
@@ -345,14 +345,14 @@ for_window [class=Xfce4-terminal] focus
 for_window [class=(?i)firefox] focus
 for_window [class=Thunar] focus
 for_window [class=Thunderbird] focus
-for_window [class=shotwell] move to workspace $ws9
-for_window [class=Shotwell] move to workspace $ws9
+for_window [class=shotwell] move to workspace $ws6
+for_window [class=Shotwell] move to workspace $ws6
 for_window [class=evince] move to workspace $ws5
 for_window [class=Evince] move to workspace $ws5
 for_window [class=TelegramDesktop] focus
-for_window [class=Viber] move to workspace $ws6
-for_window [class=instagram-nativefier] move to workspace $ws6
-for_window [class=obsidian] move to workspace $ws7
+# for_window [class=Viber] move to workspace $ws6
+# for_window [class=instagram-nativefier] move to workspace $ws6
+for_window [class=obsidian] move to workspace $ws5
 for_window [title="Terminal - vim"] move to workspace $ws3
 
 ##############
@@ -456,7 +456,7 @@ exec --no-startup-id /usr/bin/dunst
 # exec ibus start
 exec --no-startup-id xfce4-terminal
 exec --no-startup-id firefox https://www.google.gr/?hl=el
-exec --no-startup-id code
+# exec --no-startup-id code
 exec --no-startup-id Thunar
 # exec --no-startup-id Viber
 # exec --no-startup-id sleep 7 && firefox https://github.com/endeavouros-team/endeavouros-i3wm-setup/blob/main/force-knowledge.md
