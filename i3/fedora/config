@@ -304,7 +304,7 @@ bindsym $mod+Shift+p exec ~/.config/i3/scripts/power-profiles
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1:"
 set $ws2 "2:"
-set $ws3 "3:"
+set $ws3 "3:"
 set $ws4 "4:"
 set $ws5 "5:"
 set $ws6 "6:"
@@ -626,7 +626,7 @@ exec xinput set-prop "AlpsPS/2 ALPS DualPoint TouchPad" "libinput Tapping Enable
 
 #redshift 
 #I have my location set for 37.37 N, 22.43 E (the ancient city of Argos!)
-#Set your location enstead
+#Set your location instead
 exec redshift -l 37.3700:22.4300 -t 5600:3400
 
 #no beeping sound
