@@ -1,18 +1,6 @@
 # This file is a modified version based on default i3-config-wizard config
-# source is available here:
-# https://raw.githubusercontent.com/endeavouros-team/endeavouros-i3wm-setup/master/.config/i3/config
-# Maintainer: joekamprad [joekamprad //a_t// endeavouros.com]
-# https://endeavouros.com
 #
 # iconic font icon search: https://fontawesome.com/v4.7/cheatsheet/
-#
-# --> to update this run the following command (will backup existing setup file)
-# wget --backups=1 https://raw.githubusercontent.com/endeavouros-team/endeavouros-i3wm-setup/main/.config/i3/config -P ~/.config/i3/
-#
-# Endeavouros-i3 config file
-# Source for complete framework of our i3 config and theming here: https://github.com/endeavouros-team/endeavouros-i3wm-setup
-# EndeavourOS wiki holds some Information also: https://discovery.endeavouros.com/window-tiling-managers/i3-wm/
-# Please see http://i3wm.org/docs/userguide.html for the official i3 reference!
 
 #######################
 # config starts here: #
@@ -198,12 +186,6 @@ bindsym F1 exec ~/.config/i3/scripts/keyhint-2
 # bindsym $mod+F1 exec xed ~/.config/i3/keybindings
 
 # Backlight control
-#bindsym XF86MonBrightnessUp exec xbacklight +10 && notify-send "Brightness - $(xbacklight -get | cut -d '.' -f 1)%"
-#bindsym XF86MonBrightnessDown exec xbacklight -10 && notify-send "Brightness - $(xbacklight -get | cut -d '.' -f 1)%"
-# Backlight setting using dunst osc
-#bindsym XF86MonBrightnessUp exec --no-startup-id ~/.config/i3/scripts/volume_brightness.sh brightness_up
-#bindsym XF86MonBrightnessDown exec --no-startup-id ~/.config/i3/scripts/volume_brightness.sh brightness_down
-#Use brightnessctl instead.
 bindsym XF86MonBrightnessDown exec brightnessctl s 5%-
 bindsym XF86MonBrightnessUp exec brightnessctl s +5%
 
@@ -322,38 +304,38 @@ set $ws10 "10"
 #workspace $ws4 output HDMI-0
 #workspace $ws5 output HDMI-0
 
+# Run the command xprop WM_NAME to determine the title prop of the window.
+# Run the command xprop WM_CLASS to determine the class prop of the window.
 # bind program to workspace and focus to them on startup:
 assign [class="Xfce4-terminal"] $ws1
 assign [class="(?i)firefox"] $ws2
+assign [class="LibreWolf"] $ws2
 assign [class="Code"] $ws3
+assign [title="Terminal - vim"] $ws3
+assign [title="Terminal - vim config"] $ws3
 assign [class="Thunar"] $ws4
 assign [class="evince"] $ws5
 assign [class="obsidian"] $ws5
 assign [class="shotwell"] $ws6
 assign [class="vlc"] $ws7
 assign [class="parole"] $ws7
-# assign [class="Viber"] $ws6
-# assign [class="instagram-nativefier"] $ws6
-# assign [class="thunderbird"] $ws4
-# assign [class="TelegramDesktop"] $ws6
-
-# Run the command xprop WM_NAME to determine the title prop of the window.
-assign [title="Terminal - vim"] $ws3
+assign [class="libreoffice"] $ws9
+assign [class="Tor"] $ws10
+assign [class="Viber"] $ws10
 
 # automatic set focus new window if it opens on another workspace than the current:
 for_window [class=Xfce4-terminal] focus
-for_window [class=(?i)firefox] focus
 for_window [class=Thunar] focus
-for_window [class=Thunderbird] focus
-for_window [class=shotwell] move to workspace $ws6
-for_window [class=Shotwell] move to workspace $ws6
-for_window [class=evince] move to workspace $ws5
-for_window [class=Evince] move to workspace $ws5
-for_window [class=TelegramDesktop] focus
-# for_window [class=Viber] move to workspace $ws6
-# for_window [class=instagram-nativefier] move to workspace $ws6
-for_window [class=obsidian] move to workspace $ws5
 for_window [title="Terminal - vim"] move to workspace $ws3
+for_window [title="Terminal - vim config"] move to workspace $ws3
+for_window [class=Evince] move to workspace $ws5
+for_window [class=obsidian] move to workspace $ws5
+for_window [class=Shotwell] move to workspace $ws6
+for_window [class=Shotcut] move to workspace $ws8
+for_window [class=obs] move to workspace $ws8
+for_window [class=libreoffice] move to workspace $ws9
+for_window [class=Tor] move to workspace $ws10
+for_window [class=Viber] move to workspace $ws10
 
 ##############
 # compositor #
@@ -452,16 +434,7 @@ exec --no-startup-id /usr/bin/dunst
 #exec_always --no-startup-id autotiling
 
 # Autostart apps as you like
-#exec --no-startup-id sleep 2 && xfce4-terminal
-# exec --no-startup-id ibus start
-# exec ibus start
 exec --no-startup-id xfce4-terminal
-exec --no-startup-id firefox https://www.google.gr/?hl=el
-# exec --no-startup-id code
-exec --no-startup-id Thunar
-# exec --no-startup-id Viber
-# exec --no-startup-id sleep 7 && firefox https://github.com/endeavouros-team/endeavouros-i3wm-setup/blob/main/force-knowledge.md
-# exec --no-startup-id sleep 3 && thunar
 
 ###############
 # system tray #
