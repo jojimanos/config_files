@@ -263,7 +263,7 @@ bindsym $mod+p exec /usr/local/bin/switch-audio-port
 ## App shortcuts
 bindsym $mod+w exec /home/jojimanos/Applications/LibreWolf.x86_64.AppImage
 bindsym $mod+n exec /usr/bin/thunar
-bindsym $mod+Shift+t exec scrot /home/jojimanos/Pictures/%Y-%m-%d-%T-screenshot.png && notify-send "Screenshot saved to /home/jojimanos/Pictures/$(date +"%Y-%m-%d-%T")-screenshot.png"
+bindsym $mod+Shift+t exec xfce4-screenshooter /home/jojimanos/Pictures/%Y-%m-%d-%T-screenshot.png && notify-send "Screenshot saved to /home/jojimanos/Pictures/$(date +"%Y-%m-%d-%T")-screenshot.png"
 
 # Power Profiles menu switcher (rofi)
 bindsym $mod+Shift+p exec ~/.config/i3/scripts/power-profiles
@@ -311,6 +311,8 @@ assign [class="vlc"] $ws7
 assign [class="parole"] $ws7
 assign [class="Shotcut"] $ws8
 assign [class="obs"] $ws8
+assign [class="gimp"] $ws8
+assign [class="kolourpaint"] $ws8
 assign [class="libreoffice"] $ws9
 assign [class="Tor"] $ws10
 assign [class="Viber"] $ws10
@@ -318,6 +320,7 @@ assign [class="Viber"] $ws10
 # automatic set focus new window if it opens on another workspace than the current:
 for_window [class=Xfce4-terminal] focus
 for_window [class=Thunar] focus
+for_window [class=Xfce4-terminal] move to workspace $ws1
 for_window [title="Terminal - vim"] move to workspace $ws3
 for_window [title="Terminal - vim config"] move to workspace $ws3
 for_window [class=Evince] move to workspace $ws5
@@ -325,6 +328,10 @@ for_window [class=obsidian] move to workspace $ws5
 for_window [class=Shotwell] move to workspace $ws6
 for_window [class=Shotcut] move to workspace $ws8
 for_window [class=obs] move to workspace $ws8
+for_window [class=kolourpaint] move to workspace $ws8
+for_window [title="GNU Image Manipulation Program"] move to workspace $ws8
+for_window [title="Welcome to GIMP 3.0.2"] move to workspace $ws8
+for_window [title="GIMP Startup"] move to workspace $ws8
 for_window [class=libreoffice] move to workspace $ws9
 for_window [class=Tor] move to workspace $ws10
 for_window [class=Viber] move to workspace $ws10
