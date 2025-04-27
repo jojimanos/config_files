@@ -242,20 +242,10 @@ bindsym $mod+Shift+n exec ~/.config/i3/scripts/empty_workspace
 # Multimedia Keys
 
 # volume
-# use meta keys without showing osc
-#bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master 5%+ && pkill -RTMIN+1 i3blocks
-#bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 5%- && pkill -RTMIN+1 i3blocks
-# use meta keys showing osc using dunst
 bindsym XF86AudioRaiseVolume exec --no-startup-id ~/.config/i3/scripts/volume_brightness.sh volume_up
 bindsym XF86AudioLowerVolume exec --no-startup-id ~/.config/i3/scripts/volume_brightness.sh volume_down
 
-# gradular volume control
-bindsym $mod+XF86AudioRaiseVolume exec amixer -D pulse sset Master 1%+ && pkill -RTMIN+1 i3blocks
-bindsym $mod+XF86AudioLowerVolume exec amixer -D pulse sset Master 1%- && pkill -RTMIN+1 i3blocks
-
 # mute
-#bindsym XF86AudioMute exec amixer sset Master toggle && killall -USR1 i3blocks
-# use meta keys showing osc using dunst
 bindsym XF86AudioMute exec --no-startup-id ~/.config/i3/scripts/volume_brightness.sh volume_mute
 
 # mic mute toggle
@@ -271,9 +261,9 @@ bindsym XF86AudioPrev exec playerctl previous
 bindsym $mod+p exec /usr/local/bin/switch-audio-port
 
 ## App shortcuts
-bindsym $mod+w exec /usr/bin/firefox
+bindsym $mod+w exec /home/jojimanos/Applications/LibreWolf.x86_64.AppImage
 bindsym $mod+n exec /usr/bin/thunar
-bindsym Print exec scrot ~/%Y-%m-%d-%T-screenshot.png && notify-send "Screenshot saved to ~/$(date +"%Y-%m-%d-%T")-screenshot.png"
+bindsym $mod+Shift+t exec scrot /home/jojimanos/Pictures/%Y-%m-%d-%T-screenshot.png && notify-send "Screenshot saved to /home/jojimanos/Pictures/$(date +"%Y-%m-%d-%T")-screenshot.png"
 
 # Power Profiles menu switcher (rofi)
 bindsym $mod+Shift+p exec ~/.config/i3/scripts/power-profiles
@@ -291,9 +281,9 @@ set $ws4 "4:"
 set $ws5 "5:"
 set $ws6 "6:"
 set $ws7 "7:"
-set $ws8 "8"
-set $ws9 "9"
-set $ws10 "10"
+set $ws8 "8:"
+set $ws9 "9:"
+set $ws10 "10:VT"
 
 # use workspaces on different displays:
 # where you have to replace VGA-0/HDMI-0 with the names for your displays
@@ -319,6 +309,8 @@ assign [class="obsidian"] $ws5
 assign [class="shotwell"] $ws6
 assign [class="vlc"] $ws7
 assign [class="parole"] $ws7
+assign [class="Shotcut"] $ws8
+assign [class="obs"] $ws8
 assign [class="libreoffice"] $ws9
 assign [class="Tor"] $ws10
 assign [class="Viber"] $ws10
@@ -381,9 +373,6 @@ exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 #exec --no-startup-id dex -a -s /etc/xdg/autostart/:~/.config/autostart/
 exec --no-startup-id dex --autostart --environment i3
 
-# start welcome app
-#exec --no-startup-id sh /usr/share/endeavouros/scripts/welcome --startdelay=3 
-
 # num lock activated
 #exec --no-startup-id numlockx on
 
@@ -399,9 +388,7 @@ exec --no-startup-id setxkbmap -layout 'us,gr' -variant 'altgr-intl,polytonic' -
 exec --no-startup-id ~/.screenlayout/monitor.sh
 
 # set wallpaper
-# exec --no-startup-id sleep 2 && nitrogen --restore
 exec --no-startup-id nitrogen --restore
-#exec --no-startup-id sleep 1 && feh --bg-fill /usr/share/endeavouros/backgrounds/endeavouros-wallpaper.png
 
 # set powersavings for display:
 exec --no-startup-id xset s 480 dpms 600 600 600
@@ -412,7 +399,6 @@ exec --no-startup-id xset s 480 dpms 600 600 600
 # use xautolock to use autosuspend rules for mobile devices
 # https://wiki.archlinux.org/title/Session_lock#xautolock
 #exec --no-startup-id xautolock -time 60 -locker "systemctl suspend"
-
 
 # xscreensaver
 # https://www.jwz.org/xscreensaver
@@ -577,16 +563,10 @@ strip_workspace_numbers yes
 bindsym $mod+d exec rofi -modi drun -show drun \
 		-config ~/.config/rofi/rofidmenu.rasi
 
-#bindsym F9 exec rofi -modi drun -show drun \
-#		-config ~/.config/rofi/rofidmenu.rasi
-
 ## rofi bindings for window menu ($mod+t /F10 optional disabled)
 
 bindsym $mod+t exec rofi -show window \
 		-config ~/.config/rofi/rofidmenu.rasi
-
-#bindsym F10 exec rofi -show window \
-#		-config ~/.config/rofi/rofidmenu.rasi
 
 ## rofi bindings to manage clipboard (install rofi-greenclip from the AUR)
 
