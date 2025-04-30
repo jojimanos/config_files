@@ -316,6 +316,7 @@ assign [class="kolourpaint"] $ws8
 assign [class="libreoffice"] $ws9
 assign [class="Tor"] $ws10
 assign [class="Viber"] $ws10
+assign [title="LibreWolf Private Browsing"] $ws10
 
 # automatic set focus new window if it opens on another workspace than the current:
 for_window [class=Xfce4-terminal] focus
@@ -335,6 +336,7 @@ for_window [title="GIMP Startup"] move to workspace $ws8
 for_window [class=libreoffice] move to workspace $ws9
 for_window [class=Tor] move to workspace $ws10
 for_window [class=Viber] move to workspace $ws10
+for_window [title="LibreWolf Private Browsing"] move to $ws10
 
 ##############
 # compositor #
@@ -384,7 +386,7 @@ exec --no-startup-id dex --autostart --environment i3
 #exec --no-startup-id numlockx on
 
 # configure multiple keyboard layouts and hotkey to switch (Alt+SHIFT in this example)
-exec --no-startup-id setxkbmap -layout 'us,gr' -variant 'altgr-intl,polytonic' -option 'grp:alt_shift_toggle'
+exec_always --no-startup-id setxkbmap -layout 'us,gr' -variant 'altgr-intl,polytonic' -option 'grp:alt_shift_toggle'
 
 
 # start conky:
