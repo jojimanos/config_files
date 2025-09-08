@@ -288,11 +288,11 @@ set $ws10 "10:VT"
 # use workspaces on different displays:
 # where you have to replace VGA-0/HDMI-0 with the names for your displays
 # you can get from xrandr command
-#workspace $ws1 output VGA-0
-#workspace $ws2 output VGA-0
-#workspace $ws3 output HDMI-0
-#workspace $ws4 output HDMI-0
-#workspace $ws5 output HDMI-0
+workspace $ws1 output VGA-1
+workspace $ws2 output VGA-1
+workspace $ws3 output VGA-1
+workspace $ws4 output Screen 0
+workspace $ws5 output Screen 0
 
 # Run the command xprop WM_NAME to determine the title prop of the window.
 # Run the command xprop WM_CLASS to determine the class prop of the window.
