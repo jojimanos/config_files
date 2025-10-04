@@ -248,6 +248,11 @@ bindsym XF86AudioLowerVolume exec --no-startup-id ~/.config/i3/scripts/volume_br
 # mute
 bindsym XF86AudioMute exec --no-startup-id ~/.config/i3/scripts/volume_brightness.sh volume_mute
 
+# alternative volume keybindings using function keys
+bindsym $mod+F12 exec --no-startup-id ~/.config/i3/scripts/volume_brightness.sh volume_up
+bindsym $mod+F11 exec --no-startup-id ~/.config/i3/scripts/volume_brightness.sh volume_down
+bindsym $mod+F10 exec --no-startup-id ~/.config/i3/scripts/volume_brightness.sh volume_mute
+
 # mic mute toggle
 bindsym XF86AudioMicMute exec amixer sset Capture toggle
 
