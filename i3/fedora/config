@@ -68,6 +68,16 @@ bindsym $mod+7    workspace  $ws7
 bindsym $mod+8    workspace  $ws8
 bindsym $mod+9    workspace  $ws9
 bindsym $mod+0    workspace  $ws10
+bindsym $mod+Control+1    workspace  $ws11
+bindsym $mod+Control+2    workspace  $ws12
+bindsym $mod+Control+3    workspace  $ws13
+bindsym $mod+Control+4    workspace  $ws14
+bindsym $mod+Control+5    workspace  $ws15
+bindsym $mod+Control+6    workspace  $ws16
+bindsym $mod+Control+7    workspace  $ws17
+bindsym $mod+Control+8    workspace  $ws18
+bindsym $mod+Control+9    workspace  $ws19
+bindsym $mod+Control+0    workspace  $ws20
 
 # switch to workspace with numpad keys
 bindcode $mod+87 workspace 1
@@ -289,6 +299,7 @@ set $ws7 "7:"
 set $ws8 "8:"
 set $ws9 "9:"
 set $ws10 "10:VT"
+set $ws11 "11:VT"
 
 # use workspaces on different displays:
 # where you have to replace VGA-0/HDMI-0 with the names for your displays
@@ -308,7 +319,9 @@ assign [class="LibreWolf"] $ws2
 assign [class="Code"] $ws3
 assign [title="Terminal - vim"] $ws3
 assign [title="Terminal - vim config"] $ws3
+assign [title="Terminal - nvim config"] $ws3
 assign [class="Thunar"] $ws4
+assign [title="Terminal - ranger"] $ws4
 assign [class="evince"] $ws5
 assign [title="Atril Document Viewer"] $ws5
 assign [class="obsidian"] $ws5
@@ -324,6 +337,7 @@ assign [class="libreoffice"] $ws9
 assign [class="Tor"] $ws10
 assign [class="Viber"] $ws10
 assign [title="LibreWolf Private Browsing"] $ws10
+assign [class="Mullvad VPN"] $ws11
 
 # automatic set focus new window if it opens on another workspace than the current:
 for_window [class=Xfce4-terminal] focus
@@ -331,6 +345,8 @@ for_window [class=Thunar] focus
 for_window [class=Xfce4-terminal] move to workspace $ws1
 for_window [title="Terminal - vim"] move to workspace $ws3
 for_window [title="Terminal - vim config"] move to workspace $ws3
+for_window [title="Terminal - nvim config"] move to workspace $ws3
+for_window [title="Terminal - ranger"] move to workspace $ws4
 for_window [class=Evince] move to workspace $ws5
 for_window [class=obsidian] move to workspace $ws5
 for_window [class=Shotwell] move to workspace $ws6
@@ -344,6 +360,7 @@ for_window [class=libreoffice] move to workspace $ws9
 for_window [class=Tor] move to workspace $ws10
 for_window [class=Viber] move to workspace $ws10
 for_window [title="LibreWolf Private Browsing"] move to $ws10
+for_window [class="Mullvad VPN"] move to $ws11
 
 ##############
 # compositor #
@@ -407,7 +424,7 @@ exec --no-startup-id ~/.screenlayout/monitor.sh
 exec --no-startup-id nitrogen --restore
 
 # set powersavings for display:
-exec --no-startup-id xset s 480 dpms 600 600 600
+exec --no-startup-id xset s 1800 dpms 600 600 600
 
 # disable power saving (for example if using xscreensaver)
 #exec --no-startup-id xset -dpms
@@ -437,6 +454,7 @@ exec --no-startup-id /usr/bin/dunst
 
 # Autostart apps as you like
 exec --no-startup-id xfce4-terminal
+exec --no-startup-id mullvad
 
 ###############
 # system tray #
