@@ -304,11 +304,13 @@ set $ws11 "11:VT"
 # use workspaces on different displays:
 # where you have to replace VGA-0/HDMI-0 with the names for your displays
 # you can get from xrandr command
-workspace $ws1 output VGA-1
-workspace $ws2 output VGA-1
-workspace $ws3 output VGA-1
-workspace $ws4 output Screen 0
-workspace $ws5 output Screen 0
+# workspace $ws1 output VGA-1
+# workspace $ws2 output VGA-1
+# workspace $ws3 output VGA-1
+
+# move focused workspace between monitors
+bindsym $mod+Ctrl+greater move workspace to output right
+bindsym $mod+Ctrl+less move workspace to output left
 
 # Run the command xprop WM_NAME to determine the title prop of the window.
 # Run the command xprop WM_CLASS to determine the class prop of the window.
@@ -419,6 +421,9 @@ exec_always --no-startup-id setxkbmap -layout 'us,gr' -variant 'altgr-intl,polyt
 # start a script to setup displays
 # uncomment the next line, use arandr to setup displays and save the file as monitor:
 exec --no-startup-id ~/.screenlayout/monitor.sh
+
+# move workspaces when plugging and unplugging monitors
+exec --no-startup-id ~/.config/i3/scripts/move_orphaned_workspaces.sh
 
 # set wallpaper
 exec --no-startup-id nitrogen --restore
