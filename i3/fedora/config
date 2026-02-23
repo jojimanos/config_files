@@ -103,6 +103,8 @@ bindcode $mod+Mod2+80 workspace $ws8
 bindcode $mod+Mod2+81 workspace $ws9
 bindcode $mod+Mod2+90 workspace $ws10
 
+focus_on_window_activation focus
+
 # move focused container to workspace
 bindsym $mod+Shift+1    move container to workspace  $ws1
 bindsym $mod+Shift+2    move container to workspace  $ws2
@@ -344,25 +346,25 @@ assign [class="Mullvad VPN"] $ws11
 # automatic set focus new window if it opens on another workspace than the current:
 for_window [class=Xfce4-terminal] focus
 for_window [class=Thunar] focus
-for_window [class=Xfce4-terminal] move to workspace $ws1
-for_window [title="Terminal - vim"] move to workspace $ws3
-for_window [title="Terminal - vim config"] move to workspace $ws3
-for_window [title="Terminal - nvim config"] move to workspace $ws3
-for_window [title="Terminal - ranger"] move to workspace $ws4
-for_window [class=Evince] move to workspace $ws5
-for_window [class=obsidian] move to workspace $ws5
-for_window [class=Shotwell] move to workspace $ws6
-for_window [class=Shotcut] move to workspace $ws8
-for_window [class=obs] move to workspace $ws8
-for_window [class=kolourpaint] move to workspace $ws8
-for_window [title="GNU Image Manipulation Program"] move to workspace $ws8
-for_window [title="Welcome to GIMP 3.0.2"] move to workspace $ws8
-for_window [title="GIMP Startup"] move to workspace $ws8
-for_window [class=libreoffice] move to workspace $ws9
-for_window [class=Tor] move to workspace $ws10
-for_window [class=Viber] move to workspace $ws10
-for_window [title="LibreWolf Private Browsing"] move to $ws10
-for_window [class="Mullvad VPN"] move to $ws11
+for_window [class=Xfce4-terminal] move to workspace $ws1 focus
+for_window [title="Terminal - vim"] move to workspace $ws3 focus
+for_window [title="Terminal - vim config"] move to workspace $ws3 focus
+for_window [title="Terminal - nvim config"] move to workspace $ws3 focus
+for_window [title="Terminal - ranger"] move to workspace $ws4 focus
+for_window [class=Evince] move to workspace $ws5 focus
+for_window [class=obsidian] move to workspace $ws5 focus
+for_window [class=Shotwell] move to workspace $ws6 focus
+for_window [class=Shotcut] move to workspace $ws8 focus
+for_window [class=obs] move to workspace $ws8 focus
+for_window [class=kolourpaint] move to workspace $ws8 focus
+for_window [title="GNU Image Manipulation Program"] move to workspace $ws8 focus
+for_window [title="Welcome to GIMP 3.0.2"] move to workspace $ws8 focus
+for_window [title="GIMP Startup"] move to workspace $ws8 focus
+for_window [class=libreoffice] move to workspace $ws9 focus
+for_window [class=Tor] move to workspace $ws10 focus
+for_window [class=Viber] move to workspace $ws10 focus
+for_window [title="LibreWolf Private Browsing"] move to $ws10 focus
+for_window [class="Mullvad VPN"] move to $ws11 focus
 
 ##############
 # compositor #
